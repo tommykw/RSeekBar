@@ -38,6 +38,11 @@ public class RangeSeekBar<T extends Number> extends ImageView {
         init(context, null);
     }
 
+    public RangeSeekBar(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context, attrs);
+    }
+
     private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
         if (attrs == null) {
 

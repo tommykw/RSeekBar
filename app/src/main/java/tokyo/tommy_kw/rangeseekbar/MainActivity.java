@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RangeSeekBar rsb = new RangeSeekBar(this);
+        RangeSeekBar<Integer> rsb = (RangeSeekBar<Integer>)findViewById(R.id.rsb);
 
     }
 }
