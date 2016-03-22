@@ -1,6 +1,9 @@
 # fab 
+Work in progress. This library uses the Floating Action Button provided in the android design supprot library
 
-## License
+# Usage
+
+# License
 The MIT License (MIT)
 
 Copyright (c) 2016 Kenji Tomita 
