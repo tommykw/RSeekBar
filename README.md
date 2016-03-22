@@ -1,5 +1,5 @@
 # fab-flex
-Work in progress. This library uses the Floating Action Button provided in the android design supprot library.
+Work in progress. This library uses the Floating Action Button provided in the android design support library.
 A flexible Floating Action Button for providing some layouts
 
 # Feature
