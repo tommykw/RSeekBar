@@ -1,4 +1,4 @@
-# fab-flex
+# fab-flex [![Circle CI](https://circleci.com/gh/tommykw/fab-flex.svg?style=shield)](https://circleci.com/gh/tommykw/fab-flex)
 Work in progress. This library uses the Floating Action Button provided in the android design support library.
 A flexible Floating Action Button for providing some layouts
 
