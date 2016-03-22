@@ -1,5 +1,9 @@
-# fab 
-Work in progress. This library uses the Floating Action Button provided in the android design supprot library
+# fab-flex
+Work in progress. This library uses the Floating Action Button provided in the android design supprot library.
+A flexible Floating Action Button for providing some layouts
+
+# Feature
+- Implemented RecyclerView 
 
 # Usage
 
