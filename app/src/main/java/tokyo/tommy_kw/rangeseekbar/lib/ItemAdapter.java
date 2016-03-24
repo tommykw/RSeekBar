@@ -60,6 +60,6 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return fabFlexes.size();
     }
 }
