@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "tokyo.tommy_kw.rangeseekbar"
+        applicationId "com.github.tommykw.fabflex"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
