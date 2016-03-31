@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.rangeseekbar;
+package com.github.tommykw.fabflex;
 
 import android.content.Context;
 import android.content.res.TypedArray;

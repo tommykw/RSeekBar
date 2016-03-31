@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.rangeseekbar.lib;
+package com.github.tommykw.fabflex.lib;
 
 import android.support.annotation.ColorInt;
 

@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.rangeseekbar;
+package com.github.tommykw.fabflex;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

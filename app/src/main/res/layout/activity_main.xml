@@ -13,10 +13,4 @@
     <TextView android:text="Hello World!" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <tokyo.tommy_kw.rangeseekbar.RangeSeekBar
-        android:id="@+id/rsb"
-        android:layout_height="50dp"
-        android:layout_width="match_parent"
-        rsb:min="100"
-        rsb:max="200" />
 </RelativeLayout>

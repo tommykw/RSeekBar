@@ -1,7 +1,9 @@
-package tokyo.tommy_kw.rangeseekbar.lib;
+package com.github.tommykw.fabflex.lib;
 
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
+
+import com.github.tommykw.fabflex.lib.FabFlex;
 
 /**
  * fab-flex implement class
