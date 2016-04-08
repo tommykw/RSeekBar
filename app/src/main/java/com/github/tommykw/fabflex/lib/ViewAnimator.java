@@ -36,7 +36,7 @@ public class ViewAnimator extends DefaultItemAnimator {
                 setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
-                        
+
                     }
 
                     @Override
@@ -56,5 +56,33 @@ public class ViewAnimator extends DefaultItemAnimator {
                 });
     }
 
-    private void stopAnimation(final RecyclerView.ViewHolder holder) {}
+    private void stopAnimation(final RecyclerView.ViewHolder holder) {
+        holder.itemView.setTranslationY(0);
+        holder.itemView.setAlpha(1);
+        holder.itemView.animate()
+                .alpha(0)
+                .translationYBy(0)
+                .setInterpolator(null)
+                .setListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                }).start();
+    }
 }
