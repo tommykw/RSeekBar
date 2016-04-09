@@ -2,11 +2,15 @@ package com.github.tommykw.fabflex.lib;
 
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.tommykw.fabflex.R;
+import com.github.tommykw.fabflex.lib.view_holder.FloatingViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +26,11 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         void onClick(FabFlex fabFlex, int position);
     }
 
-    public ItemAdapter(@ColorInt int color, @NonNull Drawable icon) {
+    public void setFabFlexClickListener(OnFabClickListener listener) {
+        onFabClickListener = listener;
+    }
 
+    public ItemAdapter(@ColorInt int color, @NonNull Drawable icon) {
     }
 
     public void add(@NonNull FabFlex fabFlex) {
@@ -49,19 +56,42 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // update items targetIdx without
     }
 
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        switch (viewType) {
+            case FabActionType.CIRCLE:
+                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+            case FabActionType.DOUBLE_CIRCLE:
+                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+            case FabActionType.HORIZONTAL:
+                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+            case FabActionType.VERTICAL:
+                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+            case FabActionType.HORIZONTAL_AND_VERTICAL:
+                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+            default:
+                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+        }
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+        if (holder instanceof FloatingViewHolder) {
+            bindViewHolder(holder, position);
+        }
     }
 
     @Override
     public int getItemCount() {
         return fabFlexes.size();
+    }
+
+    private View getInflatedView(@LayoutRes int id, ViewGroup parent) {
+        return LayoutInflater.from(parent.getContext()).inflate(id, parent, false);
+    }
+
+    private void bindViewHolder(FloatingViewHolder holder, int position) {
+        FabFlex fb = (FabFlex) fabFlexes.get(position);
+        // TODO setup view
     }
 }

@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
+import com.github.tommykw.fabflex.lib.ItemAdapter.OnFabClickListener;
 
 import com.github.tommykw.fabflex.R;
 
