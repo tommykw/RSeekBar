@@ -8,10 +8,13 @@ import android.support.annotation.NonNull;
 /**
  * parameter builder class
  */
-public class ParamBuilderImpl implements ParamBuilder, ItemAdapter.OnFabClickListener {
+public class ParamBuilderImpl implements
+        ParamBuilder, ItemAdapter.OnFabClickListener {
+
+    public ParamBuilderImpl() {}
 
     @Override
-    public void add() {
+    public void add(@NonNull FabFlex fabFlex) {
 
     }
 

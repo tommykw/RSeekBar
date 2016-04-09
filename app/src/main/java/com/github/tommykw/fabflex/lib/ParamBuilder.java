@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
  * parameter builder interface
  */
 public interface ParamBuilder {
-    void add();
+    void add(@NonNull FabFlex fabFlex);
     FabFlex remove(@IntRange(from = 0) int index);
     void colorChanged(@ColorInt int color);
     void iconChanged(@NonNull Drawable drawable);

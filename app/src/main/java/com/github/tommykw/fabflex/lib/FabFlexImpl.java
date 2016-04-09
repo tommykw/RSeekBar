@@ -18,8 +18,18 @@ public class FabFlexImpl implements FabFlex {
     }
 
     @Override
+    public void setDrawable(Drawable drawable) {
+        this.drawable = drawable;
+    }
+
+    @Override
     public void setColor(@ColorInt int color) {
         this.color = color;
+    }
+
+    @Override
+    public Drawable getDrawable() {
+        return drawable;
     }
 
     @Override
