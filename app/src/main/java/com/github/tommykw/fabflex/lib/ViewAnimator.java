@@ -6,6 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
 import com.github.tommykw.fabflex.R;
@@ -14,9 +15,14 @@ import com.github.tommykw.fabflex.R;
  * This implementation of {@link RecyclerView} provides basic animations
  */
 public class ViewAnimator extends DefaultItemAnimator {
-    private static final OvershootInterpolator oi = null;
+    private static final OvershootInterpolator oInterpolator = new OvershootInterpolator(2);
+    private static final DecelerateInterpolator dInterpolator = new DecelerateInterpolator();
+
     @Override
     public boolean animateAdd(RecyclerView.ViewHolder holder) {
+//        if (!(holder instanceof ItemAdapter.)) {
+//            return false;
+//        }
         dispatchAddFinished(holder);
         return false;
     }
