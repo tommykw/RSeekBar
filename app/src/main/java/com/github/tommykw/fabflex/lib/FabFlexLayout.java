@@ -54,8 +54,8 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
     }
 
     private void addFabFlexOnTop() {
-        detachViewFromParent(fabFlexContainer);
-        attachViewToParent(fabFlexContainer, getChildCount(), fabFlexContainer);
+//        detachViewFromParent(fabFlexContainer);
+//        attachViewToParent(fabFlexContainer, getChildCount(), fabFlexContainer);
     }
 
     public FabFlexContainer getFabFlexContainer() {
@@ -76,7 +76,7 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
         ta.recycle();
         return color;
     }
-    
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         boolean tapped = true;
