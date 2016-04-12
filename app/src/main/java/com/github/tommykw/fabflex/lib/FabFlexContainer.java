@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GestureDetectorCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -13,6 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.github.tommykw.fabflex.lib.view_holder.FloatingViewHolder;
+
+import java.util.List;
 
 /**
  * Created by tommy on 2016/04/09.
@@ -105,6 +108,24 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
         private void updateFabTranslationForSnackbar(CoordinatorLayout parent,
                                                      FabFlexContainer child,
                                                      View dependency) {
+        }
+
+        private float translationYForSnackBar(CoordinatorLayout parent,
+                                             FabFlexContainer container) {
+            float minOffset = 0.0F;
+            List dependencies = parent.getDependencies(container);
+
+            for (int i = 0; i < dependencies.size(); i++) {
+                View view = (View) dependencies.get(i);
+                if (view instanceof Snackbar.SnackbarLayout
+                        && parent.doViewsOverlap(container, view)) {
+                    minOffset = Math.min(minOffset,
+                            ViewCompat.getTranslationY(view) - (float)view.getHeight()
+                    );
+                }
+            }
+
+            return minOffset;
         }
     }
 }
