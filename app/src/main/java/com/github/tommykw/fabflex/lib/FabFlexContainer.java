@@ -1,13 +1,18 @@
 package com.github.tommykw.fabflex.lib;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
+
+import com.github.tommykw.fabflex.lib.view_holder.FloatingViewHolder;
 
 /**
  * Created by tommy on 2016/04/09.
@@ -66,5 +71,40 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
 
     public static class FloatingLayoutBehavior
             extends  CoordinatorLayout.Behavior<FabFlexContainer> {
+        private static final boolean SNACKBAR_ENABLED;
+        private float translationY;
+        private boolean isAnimation;
+
+        static {
+            SNACKBAR_ENABLED = Build.VERSION.SDK_INT >= 11;
+        }
+
+        public FloatingLayoutBehavior() {}
+
+        public FloatingLayoutBehavior(Context context, AttributeSet attrs) {
+            super(context, attrs);
+        }
+
+        @Override
+        public boolean layoutDependsOn(CoordinatorLayout parent,
+                                       FabFlexContainer child,
+                                       View dependency) {
+            return dependency instanceof Snackbar.SnackbarLayout;
+        }
+
+        @Override
+        public boolean onDependentViewChanged(CoordinatorLayout parent,
+                                              FabFlexContainer child,
+                                              View dependency) {
+            if (dependency instanceof Snackbar.SnackbarLayout) {
+                updateFabTranslationForSnackbar(parent, child, dependency);
+            }
+            return true;
+        }
+
+        private void updateFabTranslationForSnackbar(CoordinatorLayout parent,
+                                                     FabFlexContainer child,
+                                                     View dependency) {
+        }
     }
 }
