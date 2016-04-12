@@ -7,6 +7,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -100,14 +101,32 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
                                               FabFlexContainer child,
                                               View dependency) {
             if (dependency instanceof Snackbar.SnackbarLayout) {
-                updateFabTranslationForSnackbar(parent, child, dependency);
+                updateFabTranslationForSnackBar(parent, child, dependency);
             }
             return true;
         }
 
-        private void updateFabTranslationForSnackbar(CoordinatorLayout parent,
+        private void updateFabTranslationForSnackBar(CoordinatorLayout parent,
                                                      FabFlexContainer child,
                                                      View dependency) {
+            float y = translationYForSnackBar(parent, child);
+            if (y == -dependency.getHeight()) {
+                ViewCompat.animate(child)
+                        .translationY(-y)
+                        .setInterpolator(new FastOutLinearInInterpolator())
+                        .setListener(null);
+            } else if (y != translationY) {
+                ViewCompat.animate(child).cancel();
+                if (Math.abs(y - translationY) == (float) dependency.getHeight()) {
+                    ViewCompat.animate(child)
+                            .translationY(y)
+                            .setInterpolator(new FastOutLinearInInterpolator())
+                            .setListener(null);
+                } else {
+                    ViewCompat.setTranslationY(child, y);
+                }
+                translationY = y;
+            }
         }
 
         private float translationYForSnackBar(CoordinatorLayout parent,
