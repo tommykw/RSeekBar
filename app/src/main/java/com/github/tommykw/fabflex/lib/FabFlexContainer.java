@@ -73,7 +73,7 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
         return false;
     }
 
-    public static class FloatingLayoutBehavior
+    public final static class FloatingLayoutBehavior
             extends  CoordinatorLayout.Behavior<FabFlexContainer> {
         private static final boolean SNACKBAR_ENABLED;
         private float translationY;

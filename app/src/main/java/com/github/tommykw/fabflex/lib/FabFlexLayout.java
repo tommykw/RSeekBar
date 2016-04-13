@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -38,7 +39,9 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
         }
         ta.recycle();
 
-        // should set to addView
+        fabFlexContainer = (FabFlexContainer) LayoutInflater.from(context)
+                .inflate(null, this, false); // TODO セット
+        ItemAdapter adapter = new ItemAdapter(color, drawable);
     }
 
     @Override
