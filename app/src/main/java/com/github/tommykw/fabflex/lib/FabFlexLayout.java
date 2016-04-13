@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -40,8 +41,15 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
         ta.recycle();
 
         fabFlexContainer = (FabFlexContainer) LayoutInflater.from(context)
-                .inflate(null, this, false); // TODO セット
+                .inflate(R.layout.fabflex_container, this, false);
         ItemAdapter adapter = new ItemAdapter(color, drawable);
+        fabFlexContainer.setLayoutManager(
+                new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
+        );
+        fabFlexContainer.setAdapter(adapter);
+        fabFlexContainer.setItemAnimator(new ViewAnimator());
+        fabFlexContainer.setOnTouchListener(this);
+        addView(fabFlexContainer);
     }
 
     @Override
