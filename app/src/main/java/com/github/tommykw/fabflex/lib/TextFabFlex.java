@@ -35,6 +35,11 @@ public class TextFabFlex implements FabFlex {
     }
 
     @Override
+    public void setFabKind(@FabSourceKind int fabKind) {
+
+    }
+
+    @Override
     public Drawable getDrawable() {
         return null;
     }
@@ -42,5 +47,10 @@ public class TextFabFlex implements FabFlex {
     @Override
     public int getColor() {
         return 0;
+    }
+
+    @Override
+    public int getFabKind() {
+        return FabActionType.CIRCLE;
     }
 }

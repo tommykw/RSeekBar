@@ -28,6 +28,11 @@ public class FabFlexImpl implements FabFlex {
     }
 
     @Override
+    public void setFabKind(@FabSourceKind int fabKind) {
+
+    }
+
+    @Override
     public Drawable getDrawable() {
         return drawable;
     }
@@ -35,5 +40,10 @@ public class FabFlexImpl implements FabFlex {
     @Override
     public int getColor() {
         return color;
+    }
+
+    @Override
+    public int getFabKind() {
+        return FabActionType.CIRCLE;
     }
 }

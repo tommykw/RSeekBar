@@ -9,7 +9,9 @@ import android.support.annotation.ColorInt;
 public interface FabFlex {
     void setDrawable(Drawable drawable);
     void setColor(@ColorInt int color);
+    void setFabKind(@FabSourceKind int fabKind);
     Drawable getDrawable();
     @ColorInt int getColor();
+    @FabSourceKind int getFabKind();
 
 }

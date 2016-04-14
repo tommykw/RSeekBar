@@ -11,6 +11,7 @@ import android.view.animation.OvershootInterpolator;
 import com.github.tommykw.fabflex.lib.ItemAdapter.OnFabClickListener;
 
 import com.github.tommykw.fabflex.R;
+import com.github.tommykw.fabflex.lib.view_holder.GeneralViewHolder;
 
 /**
  * This implementation of {@link RecyclerView} provides basic animations
@@ -21,15 +22,20 @@ public class ViewAnimator extends DefaultItemAnimator {
 
     @Override
     public boolean animateAdd(RecyclerView.ViewHolder holder) {
-//        if (!(holder instanceof ItemAdapter.)) {
-//            return false;
-//        }
+        if (!(holder instanceof GeneralViewHolder)) {
+            startAnimation(holder);
+            return false;
+        }
         dispatchAddFinished(holder);
         return false;
     }
 
     @Override
     public boolean animateRemove(RecyclerView.ViewHolder holder) {
+        if (!(holder instanceof GeneralViewHolder)) {
+            startAnimation(holder);
+            return false;
+        }
         dispatchRemoveFinished(holder);
         return false;
     }
@@ -43,17 +49,17 @@ public class ViewAnimator extends DefaultItemAnimator {
         holder.itemView.
                 animate().
                 translationY(0).
-                alpha(0).
-                setInterpolator(null).
+                alpha(1).
+                setInterpolator(oInterpolator).
                 setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
-
+                        dispatchAddStarting(holder);
                     }
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-
+                        dispatchAddFinished(holder);
                     }
 
                     @Override
@@ -65,7 +71,7 @@ public class ViewAnimator extends DefaultItemAnimator {
                     public void onAnimationRepeat(Animator animation) {
 
                     }
-                });
+                }).start();
     }
 
     private void stopAnimation(final RecyclerView.ViewHolder holder) {
@@ -74,16 +80,16 @@ public class ViewAnimator extends DefaultItemAnimator {
         holder.itemView.animate()
                 .alpha(0)
                 .translationYBy(getTranslation(holder))
-                .setInterpolator(null)
+                .setInterpolator(dInterpolator)
                 .setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
-
+                        dispatchRemoveStarting(holder);
                     }
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-
+                        dispatchRemoveFinished(holder);
                     }
 
                     @Override
