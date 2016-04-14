@@ -11,4 +11,5 @@ public interface FabFlex {
     void setColor(@ColorInt int color);
     Drawable getDrawable();
     @ColorInt int getColor();
+
 }

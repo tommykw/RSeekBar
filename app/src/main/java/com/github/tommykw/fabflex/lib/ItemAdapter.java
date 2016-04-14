@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.github.tommykw.fabflex.R;
 import com.github.tommykw.fabflex.lib.view_holder.FloatingViewHolder;
+import com.github.tommykw.fabflex.lib.view_holder.GeneralViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,17 +61,17 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case FabActionType.CIRCLE:
-                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+                return new GeneralViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
             case FabActionType.DOUBLE_CIRCLE:
-                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+                return new GeneralViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
             case FabActionType.HORIZONTAL:
-                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+                return new GeneralViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
             case FabActionType.VERTICAL:
-                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+                return new GeneralViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
             case FabActionType.HORIZONTAL_AND_VERTICAL:
-                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+                return new GeneralViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
             default:
-                return new FloatingViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
+                return new GeneralViewHolder(getInflatedView(0, parent), onFabClickListener, fabFlexes);
         }
     }
 

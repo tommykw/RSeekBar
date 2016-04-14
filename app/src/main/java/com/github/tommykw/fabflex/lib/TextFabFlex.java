@@ -25,8 +25,18 @@ public class TextFabFlex implements FabFlex {
     }
 
     @Override
+    public void setDrawable(Drawable drawable) {
+
+    }
+
+    @Override
     public void setColor(@ColorInt int color) {
 
+    }
+
+    @Override
+    public Drawable getDrawable() {
+        return null;
     }
 
     @Override
