@@ -15,4 +15,4 @@ import java.lang.annotation.RetentionPolicy;
         FabActionType.CIRCLE,
         FabActionType.DOUBLE_CIRCLE
 })
-@Retention(RetentionPolicy.SOURCE) @interface FabSourceAnnotation {}
+@Retention(RetentionPolicy.SOURCE) @interface FabSourceKind {}
