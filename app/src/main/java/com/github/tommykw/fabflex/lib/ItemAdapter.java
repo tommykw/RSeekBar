@@ -32,6 +32,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public ItemAdapter(@ColorInt int color, @NonNull Drawable icon) {
+        add(new FabFlexImpl(color, icon));
     }
 
     public void add(@NonNull FabFlex fabFlex) {
@@ -45,18 +46,13 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void remove(@NonNull FabFlex fabFlex) {
-        int targetIdx = 0;
-        for (int i = 0; i < this.fabFlexes.size(); i++) {
-            if (this.fabFlexes.get(i) == fabFlex) {
-                targetIdx = i;
-                this.fabFlexes.remove(fabFlex);
-                break;
-            }
-        }
-
-        // update items targetIdx without
+        this.fabFlexes.remove(fabFlex);
     }
 
+    public void removeAll(@NonNull List<FabFlex> fabFlexes) {
+        fabFlexes.removeAll(fabFlexes);
+    }
+    
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
