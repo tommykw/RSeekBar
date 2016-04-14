@@ -1,5 +1,6 @@
 package com.github.tommykw.fabflex.lib;
 
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.LayoutRes;
@@ -52,7 +53,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void removeAll(@NonNull List<FabFlex> fabFlexes) {
         fabFlexes.removeAll(fabFlexes);
     }
-    
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
@@ -88,7 +89,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     private void bindViewHolder(FloatingViewHolder holder, int position) {
-        FabFlex fb = (FabFlex) fabFlexes.get(position);
-        // TODO setup view
+        holder.fab.setBackgroundTintList(ColorStateList.valueOf(fabFlexes.get(position).getColor()));
+        holder.fab.setImageDrawable(fabFlexes.get(position).getDrawable());
     }
 }

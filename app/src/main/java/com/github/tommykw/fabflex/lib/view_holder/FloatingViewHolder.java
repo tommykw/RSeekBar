@@ -13,7 +13,7 @@ import java.util.List;
  * Created by tommy on 2016/04/09.
  */
 public abstract class FloatingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
-    protected FloatingActionButton fab;
+    public FloatingActionButton fab;
     protected ItemAdapter.OnFabClickListener clickListener;
     protected List<FabFlex> fabFlexes;
 
