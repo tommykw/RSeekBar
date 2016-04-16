@@ -5,13 +5,29 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * parameter builder class
  */
 public class ParamBuilderImpl implements
-        ParamBuilder, ItemAdapter.OnFabClickListener {
+        ParamBuilder,
+        ItemAdapter.OnFabClickListener,
+        FabFlexLayout.OnContainerClickListener {
 
-    public ParamBuilderImpl() {}
+    private final ItemAdapter itemAdapter;
+    private final FabFlexContainer fabFlexContainer;
+    private final List<FabFlex> fabFlexes;
+    private final boolean onTapped;
+    private boolean fabFlexesAdded = false;
+
+    public ParamBuilderImpl(FabFlexLayout layout, boolean onTapped) {
+        this.onTapped = onTapped;
+        this.itemAdapter = null;
+        this.fabFlexContainer = layout.getFabFlexContainer();
+        fabFlexes = new ArrayList<>();
+    }
 
     @Override
     public void add(@NonNull FabFlex fabFlex) {
@@ -43,10 +59,12 @@ public class ParamBuilderImpl implements
 
     }
 
+    @Override
+    public void onClick() {
+
+    }
+
     public interface OnClickListener {
         void onClick(int position);
     }
-
-
-
 }
