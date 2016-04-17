@@ -28,10 +28,6 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
 
     public FabFlexLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    public FabFlexLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.fabFlexLayout);
         final int color = ta.getColor(R.styleable.fabFlexLayout_fabFlexColor, fetchAccentColor(context));
         final Drawable drawable = ta.getDrawable(R.styleable.fabFlexLayout_fabFlexIcon);
