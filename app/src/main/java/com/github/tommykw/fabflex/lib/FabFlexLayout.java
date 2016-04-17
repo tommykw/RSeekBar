@@ -20,7 +20,7 @@ import com.github.tommykw.fabflex.R;
  */
 public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchListener {
     private FabFlexContainer fabFlexContainer;
-    private ItemAdapter.OnFabClickListener listener;
+    private FabFlexContainer.OnContextClickListener listener;
 
     public FabFlexLayout(Context context) {
         super(context);
@@ -30,9 +30,12 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
         super(context, attrs);
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.fabFlexLayout);
         final int color = ta.getColor(R.styleable.fabFlexLayout_fabFlexColor, fetchAccentColor(context));
-        final Drawable drawable = ta.getDrawable(R.styleable.fabFlexLayout_fabFlexIcon);
+        Drawable drawable = ta.getDrawable(R.styleable.fabFlexLayout_fabFlexIcon);
         if (drawable == null) {
-            //drawable = ContextCompat.getDrawable(context, R.drawable.)
+            drawable = ContextCompat.getDrawable(
+                    context,
+                    R.drawable.ic_check_box_outline
+            );
         }
         ta.recycle();
 
@@ -61,8 +64,8 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
     }
 
     private void addFabFlexOnTop() {
-//        detachViewFromParent(fabFlexContainer);
-//        attachViewToParent(fabFlexContainer, getChildCount(), fabFlexContainer);
+        detachViewFromParent(fabFlexContainer);
+        attachViewToParent(fabFlexContainer, getChildCount(), fabFlexContainer.getLayoutParams());
     }
 
     public FabFlexContainer getFabFlexContainer() {
@@ -73,7 +76,8 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
         void onClick();
     }
 
-    public void setContainerClickListener() {
+    public void setContainerClickListener(OnContextClickListener listener) {
+        this.listener = listener;
     }
 
     private int fetchAccentColor(Context context) {
