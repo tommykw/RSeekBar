@@ -23,7 +23,7 @@ import java.util.List;
  */
 @CoordinatorLayout.DefaultBehavior(FabFlexContainer.FloatingLayoutBehavior.class)
 public class FabFlexContainer extends RecyclerView implements GestureDetector.OnGestureListener {
-    private GestureDetectorCompat gestureDetector;
+    protected GestureDetectorCompat gestureDetector;
     private boolean isAdded = false;
 
     public FabFlexContainer(Context context) {

@@ -20,7 +20,7 @@ import com.github.tommykw.fabflex.R;
  */
 public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchListener {
     private FabFlexContainer fabFlexContainer;
-    private FabFlexContainer.OnContextClickListener listener;
+    private OnContainerClickListener listener;
 
     public FabFlexLayout(Context context) {
         super(context);
@@ -76,7 +76,7 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
         void onClick();
     }
 
-    public void setContainerClickListener(OnContextClickListener listener) {
+    public void setContainerClickListener(OnContainerClickListener listener) {
         this.listener = listener;
     }
 
@@ -90,8 +90,8 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        boolean tapped = true;
-        //if (tapped) listener.onClick();
+        boolean tapped = fabFlexContainer.gestureDetector.onTouchEvent(event);
+        if (tapped) listener.onClick();
         return tapped;
     }
 }
