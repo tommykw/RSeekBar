@@ -31,7 +31,7 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
     }
 
     public FabFlexContainer(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        super(context, attrs, 0);
     }
 
     public FabFlexContainer(Context context, @Nullable AttributeSet attrs, int defStyle) {
@@ -44,14 +44,22 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return gestureDetector.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e) {
+        return false;
+    }
+
+    @Override
     public boolean onDown(MotionEvent e) {
         return isAdded;
     }
 
     @Override
-    public void onShowPress(MotionEvent e) {
-
-    }
+    public void onShowPress(MotionEvent e) {}
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
@@ -64,9 +72,7 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
     }
 
     @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
+    public void onLongPress(MotionEvent e) {}
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
@@ -74,7 +80,7 @@ public class FabFlexContainer extends RecyclerView implements GestureDetector.On
     }
 
     public final static class FloatingLayoutBehavior
-            extends  CoordinatorLayout.Behavior<FabFlexContainer> {
+            extends CoordinatorLayout.Behavior<FabFlexContainer> {
         private static final boolean SNACKBAR_ENABLED;
         private float translationY;
         private boolean isAnimation;
