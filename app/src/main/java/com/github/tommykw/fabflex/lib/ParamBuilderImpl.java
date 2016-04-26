@@ -21,6 +21,7 @@ public class ParamBuilderImpl implements
     private final List<FabFlex> fabFlexes;
     private final boolean onTapped;
     private boolean fabFlexesAdded = false;
+    OnClickListener onClickListener;
 
     public ParamBuilderImpl(FabFlexLayout layout, boolean onTapped) {
         this.onTapped = onTapped;
@@ -62,6 +63,10 @@ public class ParamBuilderImpl implements
     @Override
     public void onClick() {
 
+    }
+    
+    public void setOnClickListener(OnClickListener listener) {
+        onClickListener = listener;
     }
 
     public interface OnClickListener {
