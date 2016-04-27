@@ -70,6 +70,17 @@ public class ParamBuilderImpl implements
 
     }
 
+    private void onMainFabFlexClick() {
+        if (!fabFlexesAdded) {
+            itemAdapter.addAll(fabFlexes);
+        } else {
+            itemAdapter.removeAll(fabFlexes);
+        }
+        fabFlexesAdded = !fabFlexesAdded;
+        fabFlexContainer.setFabFlexesAdded(onTapped && fabFlexesAdded);
+        if (onClickListener != null) onClickListener.onMainFabFlexClick();
+    }
+
     public void setOnClickListener(OnClickListener listener) {
         onClickListener = listener;
     }
