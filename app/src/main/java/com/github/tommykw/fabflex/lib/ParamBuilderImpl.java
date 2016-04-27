@@ -57,6 +57,11 @@ public class ParamBuilderImpl implements
 
     @Override
     public void onClick(FabFlex fabFlex, int position) {
+        if (position == 0) {
+            onClick();
+        } else {
+            onClickListener.onFabFlexClick(fabFlex, position - 1);
+        }
 
     }
 
@@ -64,12 +69,13 @@ public class ParamBuilderImpl implements
     public void onClick() {
 
     }
-    
+
     public void setOnClickListener(OnClickListener listener) {
         onClickListener = listener;
     }
 
     public interface OnClickListener {
-        void onClick(int position);
+        void onFabFlexClick(FabFlex fabFlex, int position);
+        void onMainFabFlexClick();
     }
 }
