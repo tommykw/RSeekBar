@@ -54,6 +54,21 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         fabFlexes.removeAll(fabFlexes);
     }
 
+    public void changeIcon(Drawable drawable) {
+        fabFlexes.get(0).setDrawable(drawable);
+        notifyItemChanged(0);
+    }
+
+    public void changeColor(@ColorInt int color) {
+        fabFlexes.get(0).setColor(color);
+        notifyItemChanged(0);
+    }
+
+    public void changeAt(int index, FabFlex fabFlex) {
+        fabFlexes.set(index, fabFlex);
+        notifyItemChanged(index);
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {

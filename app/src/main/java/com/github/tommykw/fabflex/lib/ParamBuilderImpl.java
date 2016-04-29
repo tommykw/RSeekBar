@@ -42,17 +42,17 @@ public class ParamBuilderImpl implements
 
     @Override
     public void colorChanged(@ColorInt int color) {
-
+        itemAdapter.changeColor(color);
     }
 
     @Override
     public void iconChanged(@NonNull Drawable drawable) {
-
+        itemAdapter.changeIcon(drawable);
     }
 
     @Override
     public void changedAt(@IntRange(from = 0) int index, @NonNull FabFlex fabFlex) {
-
+        itemAdapter.changeAt(index + 1, fabFlex);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class ParamBuilderImpl implements
 
     @Override
     public void onClick() {
-
+        if (fabFlexesAdded) onMainFabFlexClick();
     }
 
     private void onMainFabFlexClick() {
