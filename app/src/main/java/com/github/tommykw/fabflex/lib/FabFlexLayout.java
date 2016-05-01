@@ -80,6 +80,10 @@ public class FabFlexLayout extends CoordinatorLayout implements View.OnTouchList
         this.listener = listener;
     }
 
+    public ItemAdapter getItemAdapter() {
+        return (ItemAdapter) fabFlexContainer.getAdapter();
+    }
+
     private int fetchAccentColor(Context context) {
         TypedValue tv = new TypedValue();
         TypedArray ta = context.obtainStyledAttributes(tv.data, new int[] {R.attr.colorAccent});

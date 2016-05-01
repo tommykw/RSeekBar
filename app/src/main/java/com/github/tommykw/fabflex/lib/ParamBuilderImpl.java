@@ -23,21 +23,29 @@ public class ParamBuilderImpl implements
     private boolean fabFlexesAdded = false;
     OnClickListener onClickListener;
 
+    public static ParamBuilderImpl newInstance(
+            FabFlexLayout layout,
+            boolean onTapped) {
+        return new ParamBuilderImpl(layout, onTapped);
+    }
+
     public ParamBuilderImpl(FabFlexLayout layout, boolean onTapped) {
         this.onTapped = onTapped;
-        this.itemAdapter = null;
+        this.itemAdapter = layout.getItemAdapter();
+        this.itemAdapter.setFabFlexClickListener(this);
         this.fabFlexContainer = layout.getFabFlexContainer();
+        layout.setContainerClickListener(this);
         fabFlexes = new ArrayList<>();
     }
 
     @Override
     public void add(@NonNull FabFlex fabFlex) {
-
+        fabFlexes.add(fabFlex);
     }
 
     @Override
     public FabFlex remove(@IntRange(from = 0) int index) {
-        return null;
+        return itemAdapter.remove(index + 1);
     }
 
     @Override

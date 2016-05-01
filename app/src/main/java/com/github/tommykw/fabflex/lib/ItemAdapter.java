@@ -46,8 +46,10 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         notifyItemRangeInserted(this.fabFlexes.size() - 1, this.fabFlexes.size());
     }
 
-    public void remove(@NonNull FabFlex fabFlex) {
-        this.fabFlexes.remove(fabFlex);
+    public FabFlex remove(int position) {
+        final FabFlex ff = fabFlexes.remove(position);
+        notifyItemRemoved(position);
+        return ff;
     }
 
     public void removeAll(@NonNull List<FabFlex> fabFlexes) {
