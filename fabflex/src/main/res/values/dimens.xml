@@ -1,0 +1,17 @@
+<resources>
+    <!-- fab -->
+    <dimen name="fab_margin_large">10dp</dimen>
+    <dimen name="fab_margin_normal">8dp</dimen>
+    <dimen name="fab_margin_small">6dp</dimen>
+
+    <dimen name="fab_height_large">56dp</dimen>
+    <dimen name="fab_height_normal">48dp</dimen>
+    <dimen name="fab_height_small">42dp</dimen>
+
+    <dimen name="element_spacing_xlarge">32dp</dimen>
+    <dimen name="element_spacing_large">24dp</dimen>
+    <dimen name="element_spacing_normal">16dp</dimen>
+    <dimen name="element_spacing_small">12dp</dimen>
+    <dimen name="element_spacing_ssmall">8dp</dimen>
+    <dimen name="element_spacing_sssmall">4dp</dimen>
+</resources>
