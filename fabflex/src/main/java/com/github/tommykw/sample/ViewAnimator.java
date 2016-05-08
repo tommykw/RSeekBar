@@ -1,4 +1,4 @@
-package com.github.tommykw.fabflex;
+package com.github.tommykw.sample;
 
 import android.animation.Animator;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
-import com.github.tommykw.fabflex.view_holder.GeneralViewHolder;
+import com.github.tommykw.sample.view_holder.GeneralViewHolder;
 
 /**
  * This implementation of {@link RecyclerView} provides basic animations

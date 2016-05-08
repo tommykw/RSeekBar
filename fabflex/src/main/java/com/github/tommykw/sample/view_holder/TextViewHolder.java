@@ -1,12 +1,12 @@
-package com.github.tommykw.fabflex.view_holder;
+package com.github.tommykw.sample.view_holder;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.github.tommykw.fabflex.FabFlex;
-import com.github.tommykw.fabflex.ItemAdapter;
+import com.github.tommykw.sample.FabFlex;
+import com.github.tommykw.sample.ItemAdapter;
 
 import java.util.List;
 

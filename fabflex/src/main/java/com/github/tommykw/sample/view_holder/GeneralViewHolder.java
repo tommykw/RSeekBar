@@ -1,9 +1,9 @@
-package com.github.tommykw.fabflex.view_holder;
+package com.github.tommykw.sample.view_holder;
 
 import android.view.View;
 
-import com.github.tommykw.fabflex.FabFlex;
-import com.github.tommykw.fabflex.ItemAdapter;
+import com.github.tommykw.sample.FabFlex;
+import com.github.tommykw.sample.ItemAdapter;
 
 import java.util.List;
 

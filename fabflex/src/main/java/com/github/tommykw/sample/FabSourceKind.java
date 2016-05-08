@@ -1,4 +1,4 @@
-package com.github.tommykw.fabflex;
+package com.github.tommykw.sample;
 
 import android.support.annotation.IntDef;
 

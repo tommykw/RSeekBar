@@ -1,4 +1,4 @@
-package com.github.tommykw.fabflex;
+package com.github.tommykw.sample;
 
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.tommykw.fabflex.view_holder.FloatingViewHolder;
-import com.github.tommykw.fabflex.view_holder.GeneralViewHolder;
+import com.github.tommykw.sample.view_holder.FloatingViewHolder;
+import com.github.tommykw.sample.view_holder.GeneralViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;

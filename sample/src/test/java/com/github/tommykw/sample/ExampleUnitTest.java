@@ -1,4 +1,4 @@
-package com.github.tommykw.fabflex;
+package com.github.tommykw.sample;
 
 import org.junit.Test;
 
